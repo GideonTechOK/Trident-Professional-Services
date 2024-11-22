@@ -19,7 +19,8 @@ jobs:
           echo "\n## Posts\n" >> README.md
           for file in posts/*.md; do
             title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
-            echo "- [${title:-$(basename $file .md)}]($file)" >> README.md
+            last_modified=$(date -r "$file" +"%Y-%m-%d")
+            echo "- [${title:-$(basename "$file" .md)}]($file) (Last updated: $last_modified)" >> README.md
           done
           echo "\n_Last updated: $(date)_\n" >> README.md
 
