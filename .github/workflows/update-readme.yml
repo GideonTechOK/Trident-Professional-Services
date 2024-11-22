@@ -17,8 +17,8 @@ jobs:
         run: |
           echo "# My Blog" > README.md
           echo "\n## Posts\n" >> README.md
-          if [ -d "_posts" ] && [ "$(ls -A _posts/*.md 2>/dev/null)" ]; then
-            for file in _posts/*.md; do
+          if [ -d "posts" ] && [ "$(ls -A _posts/*.md 2>/dev/null)" ]; then
+            for file in posts/*.md; do
               title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
               last_modified=$(date -r "$file" +"%Y-%m-%d")
               echo "- [${title:-$(basename "$file" .md)}]($file) (Last updated: $last_modified)" >> README.md
