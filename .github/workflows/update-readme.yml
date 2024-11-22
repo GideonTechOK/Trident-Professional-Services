@@ -1,3 +1,6 @@
+Here's the updated workflow with the changes to handle missing files gracefully and use the `_posts/` directory:
+
+```yaml
 name: Update README with Blog Posts
 
 on:
@@ -17,11 +20,15 @@ jobs:
         run: |
           echo "# My Blog" > README.md
           echo "\n## Posts\n" >> README.md
-          for file in posts/*.md; do
-            title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
-            last_modified=$(date -r "$file" +"%Y-%m-%d")
-            echo "- [${title:-$(basename "$file" .md)}]($file) (Last updated: $last_modified)" >> README.md
-          done
+          if [ -d "_posts" ] && [ "$(ls -A _posts/*.md 2>/dev/null)" ]; then
+            for file in _posts/*.md; do
+              title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
+              last_modified=$(date -r "$file" +"%Y-%m-%d")
+              echo "- [${title:-$(basename "$file" .md)}]($file) (Last updated: $last_modified)" >> README.md
+            done
+          else
+            echo "No posts found." >> README.md
+          fi
           echo "\n_Last updated: $(date)_\n" >> README.md
 
       - name: Commit changes
@@ -34,3 +41,16 @@ jobs:
           git add README.md
           git commit -m "Update README with latest posts" || echo "No changes to commit"
           git push origin HEAD:main
+```
+
+### Updates Made:
+1. **Check for `_posts` Directory and Files**:
+   - `if [ -d "_posts" ] && [ "$(ls -A _posts/*.md 2>/dev/null)" ]; then` ensures that the `_posts` directory exists and contains markdown files.
+
+2. **Fallback Message**:
+   - If no markdown files are found, the script appends `No posts found.` to the README instead of failing.
+
+3. **Updated Directory Path**:
+   - Changed `posts/*.md` to `_posts/*.md` to match your directory structure.
+
+This workflow will now run without errors even if no markdown files are present in the `_posts/` directory.
