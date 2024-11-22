@@ -1,6 +1,4 @@
 Here's the updated workflow with the changes to handle missing files gracefully and use the `_posts/` directory:
-
-```yaml
 name: Update README with Blog Posts
 
 on:
