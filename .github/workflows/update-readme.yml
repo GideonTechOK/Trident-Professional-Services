@@ -1,0 +1,32 @@
+name: Update README with Blog Posts
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Generate README
+        run: |
+          echo "# My Blog" > README.md
+          echo "\n## Posts\n" >> README.md
+          for file in posts/*.md; do
+            title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
+            echo "- [${title:-$(basename $file .md)}]($file)" >> README.md
+          done
+          echo "\n_Last updated: $(date)_\n" >> README.md
+
+      - name: Commit changes
+        run: |
+          git config --local user.name "GitHub Action"
+          git config --local user.email "action@github.com"
+          git add README.md
+          git commit -m "Update README with latest posts" || echo "No changes to commit"
+          git push
