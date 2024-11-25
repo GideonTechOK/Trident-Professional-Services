@@ -26,8 +26,7 @@ jobs:
 
           # Read the existing README if it exists
           if [ -f README.md ]; then
-            while IFS= read -r line
-            do
+            while IFS= read -r line || [ -n "$line" ]; do
               if [ "$found_marker" -eq 0 ]; then
                 if [ "$line" = "$start_marker" ]; then
                   found_marker=1
@@ -37,7 +36,7 @@ jobs:
                   content_before="${content_before}${line}"$'\n'
                 fi
               elif [ "$skip_lines" -eq 1 ]; then
-                if [[ "$line" == "## "* ]]; then
+                if [[ "$line" =~ ^##\  ]] && [ "$line" != "$start_marker" ]; then
                   skip_lines=0
                   content_after="${content_after}${line}"$'\n'
                 else
@@ -54,7 +53,7 @@ jobs:
           fi
 
           # Generate the new Blog Posts section
-          new_blog_posts="${start_marker}"$'\n'
+          new_blog_posts=""
           declare -A seen_files
           post_found=false
 
@@ -73,14 +72,15 @@ jobs:
           fi
 
           if [ "$post_found" = false ]; then
-            new_blog_posts="${new_blog_posts}No posts found."$'\n'
+            new_blog_posts="No posts found."$'\n'
           fi
 
           # Combine the preserved content with the updated Blog Posts section
           {
-            echo "$content_before"
+            echo "${content_before%$'\n'}"
+            echo "$start_marker"
             echo "$new_blog_posts"
-            echo "$content_after"
+            echo "${content_after%$'\n'}"
           } > README.md
 
       - name: Commit changes
