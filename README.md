@@ -1,4 +1,4 @@
-# Microsoft Power Platform Blog
+# The Power Path Blog
 ### Unleashing Innovation Through Low-Code Solutions
 #### In a world where agility and innovation drive success, the Microsoft Power Platform stands as a game-changer for organizations looking to empower their teams with low-code solutions. Whether you're a seasoned developer or a business user with no coding experience, Power Platform has the tools to transform your ideas into impactful solutions.
          
