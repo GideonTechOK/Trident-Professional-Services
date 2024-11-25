@@ -39,10 +39,10 @@ jobs:
           if [ -f posts/Info.md ]; then
             info_content=$(cat posts/Info.md)
           else
-            info_content=""
+            info_content="No additional information provided."
           fi
 
-          # Generate the new Blog Posts section
+          # Generate the new Blog Posts section, avoiding duplicates
           new_blog_posts=""
           dir="posts"
           if [ -d "$dir" ]; then
@@ -54,7 +54,10 @@ jobs:
               if [ -f "$file" ]; then
                 title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
                 link=$(basename "$file")
-                new_blog_posts="${new_blog_posts}- [${title:-$(basename "$file" .md)}](posts/${link})"$'\n'
+                # Avoid duplicate entries
+                if ! echo "$new_blog_posts" | grep -q "(${link})"; then
+                  new_blog_posts="${new_blog_posts}- [${title:-$(basename "$file" .md)}](posts/${link})"$'\n'
+                fi
               fi
             done
           fi
@@ -85,10 +88,10 @@ jobs:
           git config --global user.email "action@github.com"
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
 
+          # Commit changes only if there are updates
           if ! git diff --quiet; then
             git add README.md
             git commit -m "Update README with latest blog posts and info"
             git push origin HEAD:main
           else
             echo "No changes to commit."
-          fi
