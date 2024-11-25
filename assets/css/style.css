@@ -42,6 +42,7 @@ nav a {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   transition: all 0.3s ease;
+  text-align: center; /* Center each navigation link */
 }
 
 nav a:hover {
@@ -58,7 +59,7 @@ main {
   border-radius: 10px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease;
-  text-align: center; /* Center justify all text inside the main container */
+  text-align: center; /* Center all content inside the main container */
 }
 
 h1, h2, h3 {
@@ -79,6 +80,17 @@ p {
   font-size: 1.1rem;
   margin: 1rem 0;
   text-align: justify; /* Justify paragraph text for better readability */
+}
+
+/* Bullet Lists */
+ul, ol {
+  list-style-position: inside; /* Ensure bullets align with the text */
+  padding-left: 0;
+  text-align: center; /* Center justify bullets */
+}
+
+li {
+  margin: 0.5rem 0;
 }
 
 /* Button Styles */
