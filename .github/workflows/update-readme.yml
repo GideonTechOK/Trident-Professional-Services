@@ -30,19 +30,19 @@ jobs:
           declare -A seen_files
           post_found=false
 
-          for dir in posts _posts; do
-            if [ -d "$dir" ] && [ "$(ls -A $dir/*.md 2>/dev/null)" ]; then
-              for file in $dir/*.md; do
-                file_key=$(basename "$file")
-                if [[ -z "${seen_files[$file_key]}" ]]; then
-                  seen_files["$file_key"]=1
-                  title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
-                  echo "- [${title:-$(basename "$file" .md)}]($file)" >> new_blog_posts.md
-                  post_found=true
-                fi
-              done
-            fi
-          done
+          # Only look into the 'posts' directory
+          dir="posts"
+          if [ -d "$dir" ] && [ "$(ls -A $dir/*.md 2>/dev/null)" ]; then
+            for file in $dir/*.md; do
+              file_key=$(basename "$file")
+              if [[ -z "${seen_files[$file_key]}" ]]; then
+                seen_files["$file_key"]=1
+                title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
+                echo "- [${title:-$(basename "$file" .md)}]($file)" >> new_blog_posts.md
+                post_found=true
+              fi
+            done
+          fi
 
           if [ "$post_found" = false ]; then
             echo "No posts found." >> new_blog_posts.md
