@@ -1,4 +1,1 @@
 theme: minima # Replace 'minima' with your desired theme.
-plugins:
-  - jekyll-feed
-markdown: kramdown
