@@ -1,4 +1,5 @@
 ## Blog Posts
+
 <!-- BLOG-POSTS:START -->
 - [Troubleshooting Canvas Power Apps: A Comprehensive Guide](posts/AComprehensiveGuidetoTroubleshootingCanvasPowerApps.md)
 - [Azure Logic Apps vs Power Automate: Choosing the Right Tool for Your Automation Needs](posts/Azure Logic Apps vs Power Automate.md)
