@@ -34,9 +34,9 @@ jobs:
           content_before_header=$(echo "$readme_content" | sed -n "/$header_start_marker/ q; p")
           content_after_header=$(echo "$readme_content" | sed -n "1,/$header_end_marker/ d; p")
 
-          # Read content from Info.md
-          if [ -f Info.md ]; then
-            info_content=$(cat Info.md)
+          # Read Info.md from the posts directory
+          if [ -f posts/Info.md ]; then
+            info_content=$(cat posts/Info.md)
           else
             info_content=""
           fi
@@ -46,6 +46,10 @@ jobs:
           dir="posts"
           if [ -d "$dir" ]; then
             for file in "$dir"/*.md; do
+              # Skip Info.md in the blog posts list
+              if [ "$(basename "$file")" = "Info.md" ]; then
+                continue
+              fi
               if [ -f "$file" ]; then
                 title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
                 link=$(basename "$file")
@@ -85,3 +89,4 @@ jobs:
             git push origin HEAD:main
           else
             echo "No changes to commit."
+
