@@ -1,4 +1,4 @@
-name: Update README with Blog Posts
+name: Update Blog with Posts
 
 on:
   push:
@@ -7,32 +7,22 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-readme:
+  update-blog:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Generate README
+      - name: Generate Blog
         run: |
-          # Define markers for the blog posts section
-          blog_start_marker="<!-- BLOG-POSTS:START -->"
-          blog_end_marker="<!-- BLOG-POSTS:END -->"
+          # Define the output file
+          output_file="blog.md"
 
-          # Read the existing README.md
-          if [ -f README.md ]; then
-            readme_content=$(cat README.md)
-          else
-            echo "README.md not found!"
-            exit 1
-          fi
+          # Create a new blog.md file and wipe existing content
+          echo "# Blog Posts" > "$output_file"
+          echo >> "$output_file" # Add an empty line
 
-          # Extract content before and after the blog posts markers
-          content_before_blog=$(echo "$readme_content" | sed -n "/$blog_start_marker/ q; p")
-          content_after_blog=$(echo "$readme_content" | sed -n "1,/$blog_end_marker/ d; p")
-
-          # Generate the new Blog Posts section, avoiding duplicates
-          new_blog_posts=""
+          # Generate the Blog Posts section
           dir="posts"
           if [ -d "$dir" ]; then
             for file in "$dir"/*.md; do
@@ -43,27 +33,18 @@ jobs:
                 fi
                 title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
                 link=$(basename "$file")
-                # Avoid duplicate entries
-                if ! echo "$new_blog_posts" | grep -q "(${link})"; then
-                  new_blog_posts="${new_blog_posts}- [${title:-$(basename "$file" .md)}](posts/${link})"$'\n'
-                fi
+                # Add post to blog.md
+                echo "- [${title:-$(basename "$file" .md)}](posts/${link})" >> "$output_file"
               fi
             done
+          else
+            echo "No posts directory found. Creating an empty blog." >> "$output_file"
           fi
 
-          # Fallback for empty posts
-          if [ -z "$new_blog_posts" ]; then
-            new_blog_posts="No posts available."$'\n'
+          # Add a fallback message if no posts are available
+          if [ ! "$(ls -A $dir/*.md 2>/dev/null | grep -v 'Info.md')" ]; then
+            echo "No blog posts available at this time." >> "$output_file"
           fi
-
-          # Reconstruct the README.md with updated content
-          {
-            echo "$content_before_blog"
-            echo "$blog_start_marker"
-            echo "$new_blog_posts"
-            echo "$blog_end_marker"
-            echo "$content_after_blog"
-          } > README.md
 
       - name: Commit and Push Changes
         env:
@@ -75,8 +56,8 @@ jobs:
 
           # Commit changes only if there are updates
           if ! git diff --quiet; then
-            git add README.md
-            git commit -m "Update README with latest blog posts"
+            git add blog.md
+            git commit -m "Wipe and recreate blog.md with latest blog posts"
             git push origin HEAD:main
           else
             echo "No changes to commit."
