@@ -1,4 +1,3 @@
-```markdown
 # SharePoint Development Techniques: The Way Forward
 
 ## Embracing Modern Approaches for Effective Collaboration
