@@ -15,12 +15,16 @@ jobs:
 
       - name: Generate README
         run: |
-          # Define the start and end markers
+          # Define markers
           start_marker="<!-- BLOG-POSTS:START -->"
           end_marker="<!-- BLOG-POSTS:END -->"
 
           # Read the existing README.md
-          readme_content=$(cat README.md)
+          if [ -f README.md ]; then
+            readme_content=$(cat README.md)
+          else
+            readme_content=""
+          fi
 
           # Extract content before and after the markers
           content_before=$(echo "$readme_content" | sed -n "/$start_marker/ q; p")
@@ -35,31 +39,22 @@ jobs:
 
           # Generate the new Blog Posts section
           new_blog_posts=""
-          declare -A seen_files
-          post_found=false
-
-          # Only look into the 'posts' directory
           dir="posts"
-          if [ -d "$dir" ] && ls "$dir"/*.md > /dev/null 2>&1; then
+          if [ -d "$dir" ]; then
             for file in "$dir"/*.md; do
-              file_key=$(basename "$file")
-              # Exclude Info.md from the list
-              if [[ "$file_key" != "Info.md" ]]; then
-                if [[ -z "${seen_files[$file_key]}" ]]; then
-                  seen_files["$file_key"]=1
-                  title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
-                  new_blog_posts="${new_blog_posts}- [${title:-$(basename "$file" .md)}]($file)"$'\n'
-                  post_found=true
-                fi
+              if [ -f "$file" ]; then
+                title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
+                link=$(basename "$file")
+                new_blog_posts="${new_blog_posts}- [${title:-$(basename "$file" .md)}](posts/${link})"$'\n'
               fi
             done
           fi
 
-          if [ "$post_found" = false ]; then
-            new_blog_posts="No posts found."$'\n'
+          if [ -z "$new_blog_posts" ]; then
+            new_blog_posts="No posts available."$'\n'
           fi
 
-          # Reconstruct the README.md with the content from Info.md and updated Blog Posts section
+          # Reconstruct the README.md
           {
             echo "$content_before"
             echo "$info_content"
