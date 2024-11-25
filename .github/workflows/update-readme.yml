@@ -15,11 +15,9 @@ jobs:
 
       - name: Generate README
         run: |
-          # Define markers
+          # Define markers for the blog posts section
           blog_start_marker="<!-- BLOG-POSTS:START -->"
           blog_end_marker="<!-- BLOG-POSTS:END -->"
-          header_start_marker="<!-- Header:START -->"
-          header_end_marker="<!-- Header:END -->"
 
           # Read the existing README.md
           if [ -f README.md ]; then
@@ -29,29 +27,20 @@ jobs:
             exit 1
           fi
 
-          # Extract content before and after the blog and header markers
-          content_before_header=$(echo "$readme_content" | sed -n "/$header_start_marker/ q; p")
-          content_after_header=$(echo "$readme_content" | sed -n "1,/$header_end_marker/ d; p")
+          # Extract content before and after the blog posts markers
           content_before_blog=$(echo "$readme_content" | sed -n "/$blog_start_marker/ q; p")
           content_after_blog=$(echo "$readme_content" | sed -n "1,/$blog_end_marker/ d; p")
-
-          # Read Info.md from the posts directory
-          if [ -f posts/Info.md ]; then
-            info_content=$(cat posts/Info.md)
-          else
-            info_content="No additional information provided."
-          fi
 
           # Generate the new Blog Posts section, avoiding duplicates
           new_blog_posts=""
           dir="posts"
           if [ -d "$dir" ]; then
             for file in "$dir"/*.md; do
-              # Skip Info.md in the blog posts list
-              if [ "$(basename "$file")" = "Info.md" ]; then
-                continue
-              fi
               if [ -f "$file" ]; then
+                # Skip Info.md in the blog posts list
+                if [ "$(basename "$file")" = "Info.md" ]; then
+                  continue
+                fi
                 title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
                 link=$(basename "$file")
                 # Avoid duplicate entries
@@ -62,18 +51,14 @@ jobs:
             done
           fi
 
+          # Fallback for empty posts
           if [ -z "$new_blog_posts" ]; then
             new_blog_posts="No posts available."$'\n'
           fi
 
           # Reconstruct the README.md with updated content
           {
-            echo "$content_before_header"
-            echo "$header_start_marker"
-            echo "$info_content"
-            echo "$header_end_marker"
-            echo "$content_after_header"
-            echo "### Posts"
+            echo "$content_before_blog"
             echo "$blog_start_marker"
             echo "$new_blog_posts"
             echo "$blog_end_marker"
@@ -91,7 +76,7 @@ jobs:
           # Commit changes only if there are updates
           if ! git diff --quiet; then
             git add README.md
-            git commit -m "Update README with latest blog posts and info"
+            git commit -m "Update README with latest blog posts"
             git push origin HEAD:main
           else
             echo "No changes to commit."
