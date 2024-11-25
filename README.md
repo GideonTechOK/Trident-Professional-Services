@@ -5,6 +5,7 @@ Welcome to **The Ideas Forge**, where technology meets creativity to shape solut
 
          
 
+
 ## Blog Posts
 - [Troubleshooting Canvas Power Apps: A Comprehensive Guide](posts/AComprehensiveGuidetoTroubleshootingCanvasPowerApps.md)
 - [Azure Logic Apps vs Power Automate: Choosing the Right Tool for Your Automation Needs](posts/Azure Logic Apps vs Power Automate.md)
