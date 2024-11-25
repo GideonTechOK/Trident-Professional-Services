@@ -16,8 +16,10 @@ jobs:
       - name: Generate README
         run: |
           # Define markers
-          start_marker="<!-- BLOG-POSTS:START -->"
-          end_marker="<!-- BLOG-POSTS:END -->"
+          blog_start_marker="<!-- BLOG-POSTS:START -->"
+          blog_end_marker="<!-- BLOG-POSTS:END -->"
+          header_start_marker="<!-- Header:START -->"
+          header_end_marker="<!-- Header:END -->"
 
           # Read the existing README.md
           if [ -f README.md ]; then
@@ -27,8 +29,10 @@ jobs:
           fi
 
           # Extract content before and after the markers
-          content_before=$(echo "$readme_content" | sed -n "/$start_marker/ q; p")
-          content_after=$(echo "$readme_content" | sed -n "1,/$end_marker/ d; p")
+          content_before_blog=$(echo "$readme_content" | sed -n "/$blog_start_marker/ q; p")
+          content_after_blog=$(echo "$readme_content" | sed -n "1,/$blog_end_marker/ d; p")
+          content_before_header=$(echo "$readme_content" | sed -n "/$header_start_marker/ q; p")
+          content_after_header=$(echo "$readme_content" | sed -n "1,/$header_end_marker/ d; p")
 
           # Read content from Info.md
           if [ -f Info.md ]; then
@@ -54,14 +58,18 @@ jobs:
             new_blog_posts="No posts available."$'\n'
           fi
 
-          # Reconstruct the README.md
+          # Reconstruct the README.md with separate handling for each section
           {
-            echo "$content_before"
+            echo "$content_before_header"
+            echo "$header_start_marker"
             echo "$info_content"
-            echo "$start_marker"
+            echo "$header_end_marker"
+            echo "$content_after_header"
+            echo "$content_before_blog"
+            echo "$blog_start_marker"
             echo "$new_blog_posts"
-            echo "$end_marker"
-            echo "$content_after"
+            echo "$blog_end_marker"
+            echo "$content_after_blog"
           } > README.md
 
       - name: Commit changes
@@ -71,6 +79,9 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
-          git add README.md
-          git commit -m "Update README with latest blog posts and info" || echo "No changes to commit"
-          git push origin HEAD:main
+          if ! git diff --quiet; then
+            git add README.md
+            git commit -m "Update README with latest blog posts and info"
+            git push origin HEAD:main
+          else
+            echo "No changes to commit."
