@@ -7,6 +7,7 @@ theme: minima
 
 plugins:
   - jekyll-coffeescript
+  - jekyll-feed
   - jekyll-commonmark-ghpages
   - jekyll-gist
   - jekyll-github-metadata
