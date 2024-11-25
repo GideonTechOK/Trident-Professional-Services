@@ -13,14 +13,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Debug Directory Content
+        run: |
+          ls -l
+          ls -l _posts || echo "No _posts directory found"
+
       - name: Generate README
         run: |
           echo "# My Blog" > README.md
           echo "\n## Posts\n" >> README.md
-          if [ -d "posts" ] && [ "$(ls -A _posts/*.md 2>/dev/null)" ]; then
-            for file in posts/*.md; do
+          if [ -d "_posts" ] && [ "$(ls -A _posts/*.md 2>/dev/null)" ]; then
+            for file in _posts/*.md; do
               title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
-              last_modified=$(date -r "$file" +"%Y-%m-%d")
+              last_modified=$(git log -1 --format=%ci -- "$file" | cut -d' ' -f1)
               echo "- [${title:-$(basename "$file" .md)}]($file) (Last updated: $last_modified)" >> README.md
             done
           else
