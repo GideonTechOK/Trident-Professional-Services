@@ -22,7 +22,7 @@ jobs:
           if [ -f README.md ]; then
             content_before=$(sed -n "/^${start_marker}$/q;p" README.md)
           else
-            content_before="# My Blog"
+            content_before="## Blog Posts"
           fi
 
           # Generate the new Blog Posts section
