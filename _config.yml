@@ -1,7 +1,7 @@
 # _config.yml
 
-url: "https://gideontechok.github.io"           # Your GitHub Pages URL
-baseurl: "/Trident-Professional-Services"       # Adjust if your site is served from a subpath
+# url: "https://gideontechok.github.io"           # Your GitHub Pages URL
+# baseurl: "/Trident-Professional-Services"       # Adjust if your site is served from a subpath
 
 theme: minima
 
