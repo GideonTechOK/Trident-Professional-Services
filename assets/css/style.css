@@ -1,19 +1,20 @@
 /* General Styles */
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #e9eff5; /* Softer background for a modern look */
+  background-color: #e9eff5;
   color: #2c3e50;
   margin: 0;
-  padding: 0; /* Removed body padding for full-width design */
+  padding: 0;
   line-height: 1.8;
+  text-align: center; /* Center justify all body content */
 }
 
 /* Header Styles */
 header {
-  background: linear-gradient(45deg, #007acc, #005f99); /* Gradient for dynamic look */
+  background: linear-gradient(45deg, #007acc, #005f99);
   color: white;
   padding: 1.5rem 2rem;
-  text-align: center;
+  text-align: center; /* Center header text */
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 0.05em;
@@ -27,8 +28,8 @@ header {
 nav {
   background-color: #005f99;
   display: flex;
-  justify-content: center;
-  gap: 1rem; /* Added spacing between links */
+  justify-content: center; /* Center navigation links */
+  gap: 1rem;
   padding: 0.75rem 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -44,13 +45,8 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #ffdd57; /* Golden hover effect for better contrast */
-  color: #2c3e50; /* Contrasting text color */
-}
-
-/* Hide Repository Name */
-header h1.repository-name {
-  display: none; /* Hides the repository name */
+  background-color: #ffdd57;
+  color: #2c3e50;
 }
 
 /* Main Content Styles */
@@ -61,12 +57,14 @@ main {
   background: white;
   border-radius: 10px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s ease; /* Smooth entry animation */
+  animation: fadeIn 1s ease;
+  text-align: center; /* Center justify all text inside the main container */
 }
 
 h1, h2, h3 {
   color: #007acc;
   margin-top: 0;
+  text-align: center; /* Center align headers */
 }
 
 h1 {
@@ -80,6 +78,7 @@ h2 {
 p {
   font-size: 1.1rem;
   margin: 1rem 0;
+  text-align: justify; /* Justify paragraph text for better readability */
 }
 
 /* Button Styles */
@@ -98,7 +97,7 @@ button {
 
 button:hover {
   background-color: #ffdd57;
-  transform: scale(1.05); /* Adds a subtle scaling effect */
+  transform: scale(1.05);
   color: #2c3e50;
 }
 
@@ -106,7 +105,7 @@ button:hover {
 footer {
   background: linear-gradient(45deg, #333, #555);
   color: white;
-  text-align: center;
+  text-align: center; /* Center footer text */
   padding: 1.5rem 0;
   font-size: 0.95rem;
   margin-top: 2rem;
@@ -117,14 +116,15 @@ footer {
 .card {
   background-color: #f9fbfd;
   padding: 1.5rem;
-  margin: 1.5rem 0;
+  margin: 1.5rem auto;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  text-align: center; /* Center justify card text */
 }
 
 .card:hover {
-  transform: translateY(-5px); /* Lift effect */
+  transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -136,7 +136,7 @@ footer {
   }
 
   nav {
-    flex-wrap: wrap; /* Adjusts navigation for smaller screens */
+    flex-wrap: wrap;
     gap: 0.5rem;
   }
 
