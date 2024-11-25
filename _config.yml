@@ -1,6 +1,7 @@
 # _config.yml
-baseurl: "https://gideontechok.github.io" # Adjust if your site is served from a subpath
-url: "/Trident-Professional-Services" # Your GitHub Pages URL
+
+url: "https://gideontechok.github.io"           # Your GitHub Pages URL
+baseurl: "/Trident-Professional-Services"       # Adjust if your site is served from a subpath
 
 theme: minima
 
@@ -20,4 +21,3 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
-
