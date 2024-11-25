@@ -25,14 +25,15 @@ jobs:
           if [ -f README.md ]; then
             readme_content=$(cat README.md)
           else
-            readme_content=""
+            echo "README.md not found!"
+            exit 1
           fi
 
-          # Extract content before and after the markers
-          content_before_blog=$(echo "$readme_content" | sed -n "/$blog_start_marker/ q; p")
-          content_after_blog=$(echo "$readme_content" | sed -n "1,/$blog_end_marker/ d; p")
+          # Extract content before and after the blog and header markers
           content_before_header=$(echo "$readme_content" | sed -n "/$header_start_marker/ q; p")
           content_after_header=$(echo "$readme_content" | sed -n "1,/$header_end_marker/ d; p")
+          content_before_blog=$(echo "$readme_content" | sed -n "/$blog_start_marker/ q; p")
+          content_after_blog=$(echo "$readme_content" | sed -n "1,/$blog_end_marker/ d; p")
 
           # Read Info.md from the posts directory
           if [ -f posts/Info.md ]; then
@@ -62,14 +63,14 @@ jobs:
             new_blog_posts="No posts available."$'\n'
           fi
 
-          # Reconstruct the README.md with separate handling for each section
+          # Reconstruct the README.md with updated content
           {
             echo "$content_before_header"
             echo "$header_start_marker"
             echo "$info_content"
             echo "$header_end_marker"
             echo "$content_after_header"
-            echo "$content_before_blog"
+            echo "### Posts"
             echo "$blog_start_marker"
             echo "$new_blog_posts"
             echo "$blog_end_marker"
