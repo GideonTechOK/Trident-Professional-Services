@@ -8,7 +8,7 @@ Welcome to **The Ideas Forge**, where technology meets creativity to shape solut
 - [Troubleshooting Canvas Power Apps: A Comprehensive Guide](posts/AComprehensiveGuidetoTroubleshootingCanvasPowerApps.md)
 - [Azure Logic Apps vs Power Automate: Choosing the Right Tool for Your Automation Needs](posts/Azure Logic Apps vs Power Automate.md)
 - [Designing a Power App from Start to Finish: A Comprehensive Guide](posts/Designing a Power App from Start to Finish.md)
-- [Enhancing Security in Power Apps: Best Practices and Strategies](posts/Enhancing Security in Power Apps: Best Practices and Strategies.md)
+- [Enhancing Security in Power Apps: Best Practices and Strategies](posts/Enhancing Security in Power Apps.md)
 - [Getting Started with JAMstack: A Comprehensive Guide](posts/Getting Started with JAMstack.md)
 - [Understanding Delegation in Power Apps: A Comprehensive Guide](posts/Optimizing Data Operations for Performance and Efficiency.md)
 - [Mastering Prompt Writing for Copilot Studio  ](posts/PromptingForCopilotStudio.md)
