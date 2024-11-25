@@ -26,6 +26,13 @@ jobs:
           content_before=$(echo "$readme_content" | sed -n "/$start_marker/ q; p")
           content_after=$(echo "$readme_content" | sed -n "1,/$end_marker/ d; p")
 
+          # Read content from Info.md
+          if [ -f Info.md ]; then
+            info_content=$(cat Info.md)
+          else
+            info_content=""
+          fi
+
           # Generate the new Blog Posts section
           new_blog_posts=""
           declare -A seen_files
@@ -36,11 +43,14 @@ jobs:
           if [ -d "$dir" ] && ls "$dir"/*.md > /dev/null 2>&1; then
             for file in "$dir"/*.md; do
               file_key=$(basename "$file")
-              if [[ -z "${seen_files[$file_key]}" ]]; then
-                seen_files["$file_key"]=1
-                title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
-                new_blog_posts="${new_blog_posts}- [${title:-$(basename "$file" .md)}]($file)"$'\n'
-                post_found=true
+              # Exclude Info.md from the list
+              if [[ "$file_key" != "Info.md" ]]; then
+                if [[ -z "${seen_files[$file_key]}" ]]; then
+                  seen_files["$file_key"]=1
+                  title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
+                  new_blog_posts="${new_blog_posts}- [${title:-$(basename "$file" .md)}]($file)"$'\n'
+                  post_found=true
+                fi
               fi
             done
           fi
@@ -49,9 +59,10 @@ jobs:
             new_blog_posts="No posts found."$'\n'
           fi
 
-          # Reconstruct the README.md with the updated Blog Posts section
+          # Reconstruct the README.md with the content from Info.md and updated Blog Posts section
           {
             echo "$content_before"
+            echo "$info_content"
             echo "$start_marker"
             echo "$new_blog_posts"
             echo "$end_marker"
@@ -66,5 +77,5 @@ jobs:
           git config --global user.email "action@github.com"
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
           git add README.md
-          git commit -m "Update README with latest blog posts" || echo "No changes to commit"
+          git commit -m "Update README with latest blog posts and info" || echo "No changes to commit"
           git push origin HEAD:main
