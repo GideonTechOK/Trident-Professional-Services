@@ -1,22 +1,26 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #e9eff5; /* Softer background for a modern look */
+  color: #2c3e50;
   margin: 0;
-  padding: 1rem; /* Add padding around the body */
-  line-height: 1.6;
+  padding: 0; /* Removed body padding for full-width design */
+  line-height: 1.8;
 }
 
 /* Header Styles */
 header {
-  background-color: #007acc; /* A professional blue */
+  background: linear-gradient(45deg, #007acc, #005f99); /* Gradient for dynamic look */
   color: white;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 /* Navigation Styles */
@@ -24,81 +28,140 @@ nav {
   background-color: #005f99;
   display: flex;
   justify-content: center;
-  padding: 0.5rem 0;
+  gap: 1rem; /* Added spacing between links */
+  padding: 0.75rem 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 1rem;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 nav a:hover {
-  color: #ffdd57; /* A golden highlight for hover effect */
+  background-color: #ffdd57; /* Golden hover effect for better contrast */
+  color: #2c3e50; /* Contrasting text color */
+}
+
+/* Hide Repository Name */
+header h1.repository-name {
+  display: none; /* Hides the repository name */
 }
 
 /* Main Content Styles */
 main {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 2rem auto;
-  padding: 2rem; /* Add padding inside the main container */
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease; /* Smooth entry animation */
 }
 
 h1, h2, h3 {
-  color: #007acc; /* Matches the header color */
+  color: #007acc;
   margin-top: 0;
 }
 
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
 p {
-  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  margin: 1rem 0;
 }
 
 /* Button Styles */
 button {
-  background-color: #007acc;
+  background: linear-gradient(45deg, #007acc, #005f99);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
+  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #005f99;
+  background-color: #ffdd57;
+  transform: scale(1.05); /* Adds a subtle scaling effect */
+  color: #2c3e50;
 }
 
 /* Footer Styles */
 footer {
-  background-color: #333;
+  background: linear-gradient(45deg, #333, #555);
   color: white;
   text-align: center;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
+  font-size: 0.95rem;
   margin-top: 2rem;
-  font-size: 0.9rem;
+  border-top: 5px solid #007acc;
+}
+
+/* Card Styles for Blog Posts */
+.card {
+  background-color: #f9fbfd;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   header {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  nav {
+    flex-wrap: wrap; /* Adjusts navigation for smaller screens */
+    gap: 0.5rem;
   }
 
   nav a {
     font-size: 0.9rem;
-    margin: 0 0.5rem;
   }
 
   main {
     margin: 1rem;
-    padding: 1rem; /* Adjust padding for smaller screens */
+    padding: 1.5rem;
+  }
+
+  footer {
+    font-size: 0.85rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
