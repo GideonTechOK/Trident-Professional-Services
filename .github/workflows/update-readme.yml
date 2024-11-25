@@ -21,26 +21,24 @@ jobs:
           # Initialize variables
           content_before=""
           content_after=""
-          found_marker=0
-          skip_lines=0
+          in_blog_section=0
 
           # Read the existing README if it exists
           if [ -f README.md ]; then
             while IFS= read -r line || [ -n "$line" ]; do
-              if [ "$found_marker" -eq 0 ]; then
+              if [ "$in_blog_section" -eq 0 ]; then
                 if [ "$line" = "$start_marker" ]; then
-                  found_marker=1
-                  skip_lines=1  # Start skipping lines after the marker
-                  continue
+                  in_blog_section=1  # Start of Blog Posts section
                 else
                   content_before="${content_before}${line}"$'\n'
                 fi
-              elif [ "$skip_lines" -eq 1 ]; then
+              elif [ "$in_blog_section" -eq 1 ]; then
+                # Look for the next heading of the same level or higher
                 if [[ "$line" =~ ^##\  ]] && [ "$line" != "$start_marker" ]; then
-                  skip_lines=0
+                  in_blog_section=2  # End of Blog Posts section
                   content_after="${content_after}${line}"$'\n'
                 else
-                  # Skip lines in the Blog Posts section
+                  # Skip lines within the Blog Posts section
                   continue
                 fi
               else
@@ -80,7 +78,9 @@ jobs:
             echo "${content_before%$'\n'}"
             echo "$start_marker"
             echo "$new_blog_posts"
-            echo "${content_after%$'\n'}"
+            if [ -n "$content_after" ]; then
+              echo "${content_after%$'\n'}"
+            fi
           } > README.md
 
       - name: Commit changes
