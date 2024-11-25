@@ -15,22 +15,34 @@ jobs:
 
       - name: Debug Directory Content
         run: |
+          echo "Root directory:"
           ls -l
+          echo "'_posts' directory (if exists):"
           ls -l _posts || echo "No _posts directory found"
+          echo "'posts' directory (if exists):"
+          ls -l posts || echo "No posts directory found"
 
       - name: Generate README
         run: |
           echo "# My Blog" > README.md
           echo "\n## Posts\n" >> README.md
-          if [ -d "_posts" ] && [ "$(ls -A _posts/*.md 2>/dev/null)" ]; then
-            for file in _posts/*.md; do
-              title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
-              last_modified=$(git log -1 --format=%ci -- "$file" | cut -d' ' -f1)
-              echo "- [${title:-$(basename "$file" .md)}]($file) (Last updated: $last_modified)" >> README.md
-            done
-          else
+          post_found=false
+
+          for dir in posts _posts; do
+            if [ -d "$dir" ] && [ "$(ls -A $dir/*.md 2>/dev/null)" ]; then
+              for file in $dir/*.md; do
+                title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
+                last_modified=$(git log -1 --format=%ci -- "$file" | cut -d' ' -f1)
+                echo "- [${title:-$(basename "$file" .md)}]($file) (Last updated: $last_modified)" >> README.md
+                post_found=true
+              done
+            fi
+          done
+
+          if [ "$post_found" = false ]; then
             echo "No posts found." >> README.md
           fi
+
           echo "\n_Last updated: $(date)_\n" >> README.md
 
       - name: Commit changes
