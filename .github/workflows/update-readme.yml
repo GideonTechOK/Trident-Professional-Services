@@ -18,15 +18,43 @@ jobs:
           # Define the marker for the Blog Posts section
           start_marker="## Blog Posts"
 
+          # Initialize variables
+          content_before=""
+          content_after=""
+          found_marker=0
+          skip_lines=0
+
           # Read the existing README if it exists
           if [ -f README.md ]; then
-            content_before=$(sed -n "/^${start_marker}$/q;p" README.md)
+            while IFS= read -r line
+            do
+              if [ "$found_marker" -eq 0 ]; then
+                if [ "$line" = "$start_marker" ]; then
+                  found_marker=1
+                  skip_lines=1  # Start skipping lines after the marker
+                  continue
+                else
+                  content_before="${content_before}${line}"$'\n'
+                fi
+              elif [ "$skip_lines" -eq 1 ]; then
+                if [[ "$line" == "## "* ]]; then
+                  skip_lines=0
+                  content_after="${content_after}${line}"$'\n'
+                else
+                  # Skip lines in the Blog Posts section
+                  continue
+                fi
+              else
+                content_after="${content_after}${line}"$'\n'
+              fi
+            done < README.md
           else
-            content_before="## Blog Posts"
+            content_before=""
+            content_after=""
           fi
 
           # Generate the new Blog Posts section
-          echo "${start_marker}" > new_blog_posts.md
+          new_blog_posts="${start_marker}"$'\n'
           declare -A seen_files
           post_found=false
 
@@ -38,20 +66,21 @@ jobs:
               if [[ -z "${seen_files[$file_key]}" ]]; then
                 seen_files["$file_key"]=1
                 title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
-                echo "- [${title:-$(basename "$file" .md)}]($file)" >> new_blog_posts.md
+                new_blog_posts="${new_blog_posts}- [${title:-$(basename "$file" .md)}]($file)"$'\n'
                 post_found=true
               fi
             done
           fi
 
           if [ "$post_found" = false ]; then
-            echo "No posts found." >> new_blog_posts.md
+            new_blog_posts="${new_blog_posts}No posts found."$'\n'
           fi
 
           # Combine the preserved content with the updated Blog Posts section
           {
             echo "$content_before"
-            cat new_blog_posts.md
+            echo "$new_blog_posts"
+            echo "$content_after"
           } > README.md
 
       - name: Commit changes
