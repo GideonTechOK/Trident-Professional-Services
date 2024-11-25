@@ -1,9 +1,3 @@
-title: My Blog
-description: >
-  A simple blog powered by Jekyll and GitHub Pages.
-baseurl: "" # Leave this blank unless your site is hosted in a subdirectory.
-url: "gideontechok.github.io" # Replace with your GitHub Pages URL.
-
 theme: minima # Replace 'minima' with your desired theme.
 plugins:
   - jekyll-feed
