@@ -8,4 +8,5 @@ Welcome to **The Ideas Forge**, where technology meets creativity to shape solut
 - [Troubleshooting Canvas Power Apps: A Comprehensive Guide](posts/AComprehensiveGuidetoTroubleshootingCanvasPowerApps.md)
 - [Mastering Prompt Writing for Copilot Studio  ](posts/PromptingForCopilotStudio.md)
 - [SharePoint Development Techniques: The Way Forward](posts/SharePoint Development Techniques.md)
+- [SharePointDBMount  ](posts/Streamlining SharePoint Database Maintenance with PowerShell .md)
 - [Why You Should Use JAMstack](posts/Why You Should Use JAMstack.md)
