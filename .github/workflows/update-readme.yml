@@ -11,39 +11,48 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Debug Directory Content
-        run: |
-          echo "Root directory:"
-          ls -l
-          echo "'_posts' directory (if exists):"
-          ls -l _posts || echo "No _posts directory found"
-          echo "'posts' directory (if exists):"
-          ls -l posts || echo "No posts directory found"
+        uses: actions/checkout@v4
 
       - name: Generate README
         run: |
-                 
+          # Define the marker for the Blog Posts section
+          start_marker="## Blog Posts"
+
+          # Read the existing README if it exists
+          if [ -f README.md ]; then
+            content_before=$(sed -n "/^${start_marker}$/q;p" README.md)
+          else
+            content_before="# My Blog"
+          fi
+
+          # Generate the new Blog Posts section
+          echo "${start_marker}" > new_blog_posts.md
+          declare -A seen_files
           post_found=false
 
           for dir in posts _posts; do
             if [ -d "$dir" ] && [ "$(ls -A $dir/*.md 2>/dev/null)" ]; then
               for file in $dir/*.md; do
-                title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
-                last_modified=$(git log -1 --format=%ci -- "$file" | cut -d' ' -f1)
-                echo "- [${title:-$(basename "$file" .md)}]($file) (Last updated: $last_modified)" >> README.md
-                post_found=true
+                file_key=$(basename "$file")
+                if [[ -z "${seen_files[$file_key]}" ]]; then
+                  seen_files["$file_key"]=1
+                  title=$(grep -m 1 '^# ' "$file" | sed 's/# //')
+                  echo "- [${title:-$(basename "$file" .md)}]($file)" >> new_blog_posts.md
+                  post_found=true
+                fi
               done
             fi
           done
 
           if [ "$post_found" = false ]; then
-            echo "No posts found.\n" >> README.md
+            echo "No posts found." >> new_blog_posts.md
           fi
 
-          echo "_" >> README.md
-          echo "_Last updated: $(date)_" >> README.md
+          # Combine the preserved content with the updated Blog Posts section
+          {
+            echo "$content_before"
+            cat new_blog_posts.md
+          } > README.md
 
       - name: Commit changes
         env:
@@ -53,5 +62,5 @@ jobs:
           git config --global user.email "action@github.com"
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
           git add README.md
-          git commit -m "Update README with latest posts" || echo "No changes to commit"
+          git commit -m "Update README with latest blog posts" || echo "No changes to commit"
           git push origin HEAD:main
