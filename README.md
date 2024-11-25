@@ -7,3 +7,4 @@ Welcome to **The Ideas Forge**, where technology meets creativity to shape solut
 ## Blog Posts
 - [A Comprehensive Guide to Troubleshooting Canvas Power Apps](posts/AComprehensiveGuidetoTroubleshootingCanvasPowerApps.md)
 - [A Comprehensive Guide to Writing Prompts for Copilot Studio to Extract Data from Documents](posts/PromptingForCopilotStudio.md)
+- [Why You Should Use JAMstack](posts/Why You Should Use JAMstack.md)
