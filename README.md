@@ -12,6 +12,7 @@
 - [Top 10 Tips for Building Efficient Power Automate Flows](posts/Streamlining Automation for Maximum Productivity.md)
 - [Add SharePoint PowerShell Snap-In ](posts/Streamlining SharePoint Database Maintenance with PowerShell.md)
 - [Why You Should Use JAMstack](posts/Why You Should Use JAMstack.md)
+- [The Ideas Forge  ](posts/info.md)
 
 <!-- BLOG-POSTS:END -->
 
