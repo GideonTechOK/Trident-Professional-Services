@@ -1,4 +1,3 @@
-```markdown
 # A Comprehensive Guide to Troubleshooting Canvas Power Apps
 
 Canvas Power Apps are powerful tools for building custom business applications with minimal coding. However, like any software, they can encounter issues that require troubleshooting. This guide will walk you through common problems and provide step-by-step solutions to help you resolve them efficiently.
