@@ -21,5 +21,3 @@ exclude:
   - Gemfile
   - Gemfile.lock
 
-# Optional settings
-markdown: CommonMarkGhPages
