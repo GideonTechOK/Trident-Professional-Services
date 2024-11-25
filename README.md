@@ -21,4 +21,3 @@ Welcome to **The Ideas Forge**, where technology meets creativity to shape solut
 - [Add SharePoint PowerShell Snap-In ](posts/Streamlining SharePoint Database Maintenance with PowerShell.md)
 - [Why You Should Use JAMstack](posts/Why You Should Use JAMstack.md)
 
-
