@@ -6,6 +6,7 @@ Welcome to **The Ideas Forge**, where technology meets creativity to shape solut
          
 ## Blog Posts
 - [Troubleshooting Canvas Power Apps: A Comprehensive Guide](posts/AComprehensiveGuidetoTroubleshootingCanvasPowerApps.md)
+- [Azure Logic Apps vs Power Automate: Choosing the Right Tool for Your Automation Needs](posts/Azure Logic Apps vs Power Automate.md)
 - [Mastering Prompt Writing for Copilot Studio  ](posts/PromptingForCopilotStudio.md)
 - [SharePoint Development Techniques: The Way Forward](posts/SharePoint Development Techniques.md)
 - [SharePointDBMount  ](posts/Streamlining SharePoint Database Maintenance with PowerShell .md)
