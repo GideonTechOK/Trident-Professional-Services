@@ -1,5 +1,4 @@
-# SharePointDBMount  
-### Streamlining SharePoint Database Maintenance with PowerShell  
+#Streamlining SharePoint Database Maintenance with PowerShell  
 
 Managing SharePoint databases efficiently is crucial for maintaining optimal performance and ensuring smooth operations during patching and upgrades. In this blog post, we will discuss two essential PowerShell scripts—**Dismount_DB.ps1** and **Mount_DB.ps1**—that help automate the dismounting and mounting of SharePoint content databases. These scripts are particularly useful during maintenance windows when applying patches or updates to your SharePoint farm.
 
