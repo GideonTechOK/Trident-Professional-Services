@@ -2,6 +2,7 @@
 
 - [Troubleshooting Canvas Power Apps: A Comprehensive Guide](posts/AComprehensiveGuidetoTroubleshootingCanvasPowerApps.md)
 - [Azure Logic Apps vs Power Automate: Choosing the Right Tool for Your Automation Needs](posts/AzureLogicAppsvsPowerAutomate.md)
+- [Exploring the Latest Features in Microsoft Copilot](posts/Copliot1.md)
 - [Understanding Delegation in Power Apps: A Comprehensive Guide](posts/DataOpsforPerformance.md)
 - [Designing a Power App from Start to Finish: A Comprehensive Guide](posts/DesigningPowerApps.md)
 - [Getting Started with JAMstack: A Comprehensive Guide](posts/JAMstack.md)
