@@ -4,56 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trident Professional Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Global Styles */
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            min-height: 100vh;
-            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
             color: #333;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
         }
 
-        h2 {
-            font-size: 2em;
-            margin-bottom: 0.5em;
+        header h1 {
+            font-size: 2.5rem;
+            color: #007acc;
         }
 
-        h3 {
-            font-size: 1.5em;
-            margin-bottom: 1em;
+        header h2 {
+            font-size: 1.8rem;
+            color: #555;
+            margin-bottom: 0.5rem;
         }
 
-        p {
-            margin-bottom: 1.5em;
+        header h3 {
+            font-size: 1.2rem;
+            color: #777;
         }
 
-        ul {
-            list-style: none;
-            padding: 0;
+        /* Content Section */
+        section {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            text-align: left;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        ul li {
-            margin: 0.5em 0;
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
         }
 
+        section p {
+            margin-bottom: 1rem;
+        }
+
+        section ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Divider */
         .divider {
-            margin: 2em auto;
-            width: 50%;
             height: 1px;
             background-color: #ddd;
+            margin: 2rem 0;
         }
 
+        /* Links */
         a {
             color: #007acc;
             text-decoration: none;
@@ -62,43 +93,59 @@
         a:hover {
             text-decoration: underline;
         }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #777;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
-    <div>
-        <h1>Trident-Professional-Services</h1>
-        <h2>Trident Professional Services</h2>
-        <h3>Crafting Innovation, One Solution at a Time</h3>
+    <header>
+        <h1>Trident Professional Services</h1>
+        <h2>Crafting Innovation, One Solution at a Time</h2>
+        <h3>Empowering businesses through technology</h3>
+    </header>
+    <section>
+        <h2>About Us</h2>
         <p>Welcome to <strong>Trident Professional Services</strong>, your trusted partner in the digital transformation journey. We are a team of dedicated IT professionals committed to empowering businesses with innovative, tailored solutions that drive efficiency, productivity, and growth.</p>
-        <p>At Trident, we combine cutting-edge technology with creative problem-solving to deliver solutions that truly make an impact. Whether it’s enhancing business processes, creating collaborative workspaces, building dynamic websites, or scaling operations to the cloud, our expertise ensures your success in an ever-evolving digital landscape.</p>
-        <div class="divider"></div>
-        <h2>What We Do</h2>
+        <p>At Trident, we combine cutting-edge technology with creative problem-solving to deliver impactful solutions. Whether enhancing business processes, creating collaborative workspaces, or scaling operations to the cloud, our expertise ensures your success in a digital world.</p>
+    </section>
+    <div class="divider"></div>
+    <section>
+        <h2>Our Services</h2>
         <ul>
-            <li><strong>Microsoft Power Platform</strong>: Build powerful business applications that streamline workflows and enhance decision-making.</li>
-            <li><strong>SharePoint Development</strong>: Architect collaborative environments that foster teamwork and improve information sharing.</li>
-            <li><strong>JAMstack Solutions</strong>: Harness modern web architecture for faster, more secure, and scalable websites.</li>
-            <li><strong>Azure Cloud Services</strong>: Unlock limitless possibilities with secure and scalable cloud solutions tailored to your organization.</li>
+            <li><strong>Microsoft Power Platform</strong>: Streamline workflows and enhance decision-making.</li>
+            <li><strong>SharePoint Development</strong>: Foster collaboration and improve information sharing.</li>
+            <li><strong>JAMstack Solutions</strong>: Build fast, secure, and scalable websites.</li>
+            <li><strong>Azure Cloud Services</strong>: Leverage secure and scalable cloud solutions.</li>
         </ul>
-        <div class="divider"></div>
-        <h2>Why Choose Trident?</h2>
-        <p>We go beyond traditional IT solutions by delivering personalized, forward-thinking strategies that transform your ideas into powerful, actionable results.</p>
+    </section>
+    <div class="divider"></div>
+    <section>
+        <h2>Why Choose Us?</h2>
         <ul>
-            <li><strong>Innovation</strong>: Constantly staying ahead of the curve to provide you with the latest technologies and methodologies.</li>
-            <li><strong>Expertise</strong>: Leveraging years of experience across diverse industries to solve complex challenges.</li>
-            <li><strong>Empowerment</strong>: Enabling organizations, developers, and business users to reach their full potential.</li>
+            <li><strong>Innovation:</strong> Staying ahead with cutting-edge technology.</li>
+            <li><strong>Expertise:</strong> Over a decade of solving complex challenges.</li>
+            <li><strong>Empowerment:</strong> Enabling organizations to achieve their full potential.</li>
         </ul>
-        <div class="divider"></div>
+    </section>
+    <div class="divider"></div>
+    <section>
         <h2>Explore Our Blog</h2>
-        <p>Dive into our <a href="blog.md"><strong>Blog</strong></a> for insights, tutorials, and expert advice on:</p>
+        <p>Visit our <a href="blog.md"><strong>Blog</strong></a> for insights, tutorials, and expert advice on topics like:</p>
         <ul>
-            <li>Business application development with Microsoft Power Platform.</li>
-            <li>Enhancing productivity and collaboration using SharePoint.</li>
-            <li>Leveraging the flexibility and performance of JAMstack.</li>
-            <li>Unlocking the full potential of Azure cloud services.</li>
+            <li>Microsoft Power Platform application development.</li>
+            <li>Productivity enhancement with SharePoint.</li>
+            <li>Modern web development using JAMstack.</li>
+            <li>Azure cloud optimization.</li>
         </ul>
-        <p>Our blog is your go-to destination for staying informed and inspired, with practical tips and in-depth explorations of the latest trends in IT.</p>
-        <div class="divider"></div>
-        <p><strong>Discover the possibilities. Unlock your potential with Trident Professional Services.</strong></p>
-    </div>
+    </section>
+    <footer>
+        <p>© 2024 Trident Professional Services. All rights reserved.</p>
+    </footer>
 </body>
 </html>
