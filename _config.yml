@@ -3,7 +3,9 @@
 url: "https://gideontechok.github.io"           # Your GitHub Pages URL
 baseurl: "/Trident-Professional-Services"       # Adjust if your site is served from a subpath
 
-theme: null
+markdown: kramdown
+theme: minima
+
 
 plugins:
   - jekyll-coffeescript
