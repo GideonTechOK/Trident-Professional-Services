@@ -3,7 +3,7 @@
 url: "https://gideontechok.github.io"           # Your GitHub Pages URL
 baseurl: "/Trident-Professional-Services"       # Adjust if your site is served from a subpath
 
-remote_theme: pages-themes/architect@v0.2.0
+theme: null
 
 plugins:
   - jekyll-coffeescript
