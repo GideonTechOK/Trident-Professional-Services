@@ -5,6 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Trident Professional Services</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Additional styles for Services Page */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Two columns for larger screens */
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left; /* Left-align for a professional look */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: #007acc;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            list-style: disc;
+            margin-left: 20px;
+            font-size: 0.95rem;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,19 +61,39 @@
         <div class="services">
             <div class="card">
                 <h3>Microsoft Power Platform</h3>
-                <p>Streamline workflows and enhance decision-making.</p>
+                <p>Empower your business with low-code solutions that streamline workflows, automate repetitive tasks, and enhance decision-making capabilities.</p>
+                <ul>
+                    <li>Automate routine business processes with Power Automate.</li>
+                    <li>Develop custom apps with Power Apps.</li>
+                    <li>Generate insights using Power BI dashboards.</li>
+                </ul>
             </div>
             <div class="card">
                 <h3>SharePoint Development</h3>
-                <p>Foster collaboration and improve information sharing.</p>
+                <p>Foster collaboration and streamline information sharing with customized SharePoint solutions tailored to meet your organization’s unique needs.</p>
+                <ul>
+                    <li>Create dynamic intranets for seamless communication.</li>
+                    <li>Design custom document management systems.</li>
+                    <li>Integrate workflows and processes with ease.</li>
+                </ul>
             </div>
             <div class="card">
                 <h3>JAMstack Solutions</h3>
-                <p>Build fast, secure, and scalable websites.</p>
+                <p>Build high-performance, secure, and scalable websites using modern JAMstack architecture for faster load times and better user experiences.</p>
+                <ul>
+                    <li>Leverage static site generation for speed and reliability.</li>
+                    <li>Implement headless CMS solutions for flexibility.</li>
+                    <li>Optimize websites for scalability and security.</li>
+                </ul>
             </div>
             <div class="card">
                 <h3>Azure Cloud Services</h3>
-                <p>Leverage secure and scalable cloud solutions.</p>
+                <p>Take your business to the next level with scalable and secure cloud services. Azure offers a range of solutions to meet your organization’s needs.</p>
+                <ul>
+                    <li>Host and scale applications with Azure App Services.</li>
+                    <li>Manage data securely with Azure SQL Database.</li>
+                    <li>Integrate AI and machine learning for innovative solutions.</li>
+                </ul>
             </div>
         </div>
     </section>
