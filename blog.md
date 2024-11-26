@@ -11,3 +11,4 @@
 - [Add SharePoint PowerShell Snap-In ](posts/SPDatabaseMaintenance.md)
 - [SharePoint Development Techniques: The Way Forward](posts/SPODev.md)
 - [Why You Should Use JAMstack](posts/UseJAMstack.md)
+- [Creating a Multi-Level Approval Workflow in SharePoint: An Alternative to Power Automate Sequential Approvals](posts/multiapproval.md)
