@@ -1,7 +1,7 @@
 # Blog Posts
 
 - [Troubleshooting Canvas Power Apps: A Comprehensive Guide](posts/AComprehensiveGuidetoTroubleshootingCanvasPowerApps.md)
-- [Azure Logic Apps vs Power Automate: Choosing the Right Tool for Your Automation Needs](posts/Azure Logic Apps vs Power Automate.md)
+- [Azure Logic Apps vs Power Automate: Choosing the Right Tool for Your Automation Needs](posts/AzureLogicAppsvsPowerAutomate.md)
 - [Designing a Power App from Start to Finish: A Comprehensive Guide](posts/Designing a Power App from Start to Finish.md)
 - [Enhancing Security in Power Apps: Best Practices and Strategies](posts/Enhancing Security in Power Apps.md)
 - [Getting Started with JAMstack: A Comprehensive Guide](posts/Getting Started with JAMstack.md)
