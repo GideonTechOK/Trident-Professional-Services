@@ -26,16 +26,14 @@ SharePoint provides:
         - **Approver** (Person or Group): Assign the approver for each level.
      3. Populate this list with approvers for each stage.
 
-### 2. **Create a "Requests" List**
+### 2. **"Your Requests" List**
    - **Purpose**: Manage user requests and their approval status.
    - **Steps**:
-     1. Create a list named **Requests**.
+     1. Create a list named **Your Requests**.
      2. Add the following columns:
-        - **Title** (Single Line Text): The request title.
         - **Approval Status** (Choice): Options like "Pending", "Approved", "Rejected".
         - **Comments** (Multi-line Text): For approver feedback.
         - **Approver** (Single Line Text): To track who is currently reviewing.
-        - **WorkstationType** (Choice): Add options like "Standard", "Performance", "2-in-1".
 
 ---
 
