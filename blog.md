@@ -9,4 +9,4 @@
 - [Mastering Prompt Writing for Copilot Studio  ](posts/PromptingForCopilotStudio.md)
 - [Add SharePoint PowerShell Snap-In ](posts/SPDatabaseMaintenance.md)
 - [SharePoint Development Techniques: The Way Forward](posts/SPODev.md)
-- [Why You Should Use JAMstack](posts/Why You Should Use JAMstack.md)
+- [Why You Should Use JAMstack](posts/UseJAMstack.md)
