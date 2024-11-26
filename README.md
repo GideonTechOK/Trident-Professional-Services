@@ -1,13 +1,4 @@
-<p align="center">
-  ---
-
-  # Trident-Professional-Services
-  ---
-
-</p>
-
-<p align="center">
-  ---
+ ---
 
   ## Trident Professional Services  
   ### Crafting Innovation, One Solution at a Time
