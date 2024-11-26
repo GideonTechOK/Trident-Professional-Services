@@ -1,0 +1,26 @@
+name: Convert Markdown to HTML
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Convert Markdown to HTML
+        uses: tsuyoshicho/markdown-to-html@v1
+        with:
+          input_dir: "./posts" # The folder containing .md files
+          output_dir: "./html" # Output folder for HTML files
+
+      - name: Upload Converted Files
+        uses: actions/upload-artifact@v3
+        with:
+          name: converted-html
+          path: ./html
