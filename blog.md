@@ -10,4 +10,3 @@
 - [Add SharePoint PowerShell Snap-In ](posts/SPDatabaseMaintenance.md)
 - [SharePoint Development Techniques: The Way Forward](posts/SPODev.md)
 - [Why You Should Use JAMstack](posts/Why You Should Use JAMstack.md)
-- [The Ideas Forge  ](posts/info.md)
