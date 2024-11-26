@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trident Professional Services</title>
+    <title>Trident Professional Services - Managed IT Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
@@ -15,137 +15,131 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
             line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
+            color: #333;
         }
 
-        /* Header Section */
         header {
-            text-align: center;
-            margin-bottom: 2rem;
+            background: #007acc;
+            color: #fff;
+            padding: 20px;
         }
 
         header h1 {
             font-size: 2.5rem;
-            color: #007acc;
+            text-align: center;
         }
 
-        header h2 {
-            font-size: 1.8rem;
-            color: #555;
-            margin-bottom: 0.5rem;
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #005fa1;
         }
 
-        header h3 {
-            font-size: 1.2rem;
-            color: #777;
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
         }
 
-        /* Content Section */
+        nav a:hover {
+            background: #004080;
+        }
+
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+        }
+
         section {
-            width: 100%;
-            max-width: 800px;
-            margin-bottom: 2rem;
-            text-align: left;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .services, .about-preview, .blog-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
             background: #fff;
+            border: 1px solid #ddd;
             padding: 20px;
             border-radius: 8px;
+            text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        section p {
-            margin-bottom: 1rem;
-        }
-
-        section ul {
-            list-style: disc;
-            margin-left: 20px;
-        }
-
-        section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Divider */
-        .divider {
-            height: 1px;
-            background-color: #ddd;
-            margin: 2rem 0;
-        }
-
-        /* Links */
-        a {
+        .card h3 {
             color: #007acc;
-            text-decoration: none;
         }
 
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
         footer {
+            background: #333;
+            color: #fff;
             text-align: center;
-            margin-top: 2rem;
-            color: #777;
-            font-size: 0.9rem;
+            padding: 20px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Trident Professional Services</h1>
-        <h2>Crafting Innovation, One Solution at a Time</h2>
-        <h3>Empowering businesses through technology</h3>
     </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="hero">
+        <h2>Your Managed IT Services Partner</h2>
+    </div>
     <section>
-        <h2>About Us</h2>
-        <p>Welcome to <strong>Trident Professional Services</strong>, your trusted partner in the digital transformation journey. We are a team of dedicated IT professionals committed to empowering businesses with innovative, tailored solutions that drive efficiency, productivity, and growth.</p>
-        <p>At Trident, we combine cutting-edge technology with creative problem-solving to deliver impactful solutions. Whether enhancing business processes, creating collaborative workspaces, or scaling operations to the cloud, our expertise ensures your success in a digital world.</p>
+        <h2>Our Expertise</h2>
+        <div class="services">
+            <div class="card">
+                <h3>IT Support</h3>
+                <p>Round-the-clock support for your business-critical systems.</p>
+            </div>
+            <div class="card">
+                <h3>Cloud Solutions</h3>
+                <p>Scalable and secure cloud services tailored to your needs.</p>
+            </div>
+            <div class="card">
+                <h3>Cybersecurity</h3>
+                <p>Protect your data and systems with our robust security services.</p>
+            </div>
+        </div>
     </section>
-    <div class="divider"></div>
     <section>
-        <h2>Our Services</h2>
-        <ul>
-            <li><strong>Microsoft Power Platform</strong>: Streamline workflows and enhance decision-making.</li>
-            <li><strong>SharePoint Development</strong>: Foster collaboration and improve information sharing.</li>
-            <li><strong>JAMstack Solutions</strong>: Build fast, secure, and scalable websites.</li>
-            <li><strong>Azure Cloud Services</strong>: Leverage secure and scalable cloud solutions.</li>
-        </ul>
-    </section>
-    <div class="divider"></div>
-    <section>
-        <h2>Why Choose Us?</h2>
-        <ul>
-            <li><strong>Innovation:</strong> Staying ahead with cutting-edge technology.</li>
-            <li><strong>Expertise:</strong> Over a decade of solving complex challenges.</li>
-            <li><strong>Empowerment:</strong> Enabling organizations to achieve their full potential.</li>
-        </ul>
-    </section>
-    <div class="divider"></div>
-    <section>
-        <h2>Explore Our Blog</h2>
-        <p>Visit our <a href="blog.md"><strong>Blog</strong></a> for insights, tutorials, and expert advice on topics like:</p>
-        <ul>
-            <li>Microsoft Power Platform application development.</li>
-            <li>Productivity enhancement with SharePoint.</li>
-            <li>Modern web development using JAMstack.</li>
-            <li>Azure cloud optimization.</li>
-        </ul>
+        <h2>Insights from Our Blog</h2>
+        <div class="blog-preview">
+            <div class="card">
+                <h3>Maximizing Productivity with IT</h3>
+                <p>Discover the latest tips and strategies to improve efficiency.</p>
+            </div>
+            <div class="card">
+                <h3>Cloud Migration Best Practices</h3>
+                <p>Learn how to transition to the cloud seamlessly and securely.</p>
+            </div>
+        </div>
     </section>
     <footer>
-        <p>© 2024 Trident Professional Services. All rights reserved.</p>
+        <p>&copy; 2024 Trident Professional Services. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
