@@ -2,9 +2,9 @@
 
 - [Troubleshooting Canvas Power Apps: A Comprehensive Guide](posts/AComprehensiveGuidetoTroubleshootingCanvasPowerApps.md)
 - [Azure Logic Apps vs Power Automate: Choosing the Right Tool for Your Automation Needs](posts/AzureLogicAppsvsPowerAutomate.md)
+- [Understanding Delegation in Power Apps: A Comprehensive Guide](posts/DataOpsforPerformance.md)
 - [Designing a Power App from Start to Finish: A Comprehensive Guide](posts/DesigningPowerApps.md)
 - [Getting Started with JAMstack: A Comprehensive Guide](posts/JAMstack.md)
-- [Understanding Delegation in Power Apps: A Comprehensive Guide](posts/Optimizing Data Operations for Performance and Efficiency.md)
 - [Mastering Prompt Writing for Copilot Studio  ](posts/PromptingForCopilotStudio.md)
 - [SharePoint Development Techniques: The Way Forward](posts/SharePoint Development Techniques.md)
 - [Top 10 Tips for Building Efficient Power Automate Flows](posts/Streamlining Automation for Maximum Productivity.md)
