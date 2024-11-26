@@ -1,6 +1,8 @@
  ---
 <p align="center">
   ## Trident Professional Services  
+</p>
+<p align="center">
   ### Crafting Innovation, One Solution at a Time
   ---
 
