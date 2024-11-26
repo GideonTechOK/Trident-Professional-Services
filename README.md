@@ -1,13 +1,7 @@
- ---
-<p align="center">
   ## Trident Professional Services  
-</p>
-<p align="center">
   ### Crafting Innovation, One Solution at a Time
   ---
 
-</p>
-<p align="center">
 Welcome to **Trident Professional Services**, your trusted partner in the digital transformation journey. We are a team of dedicated IT professionals committed to empowering businesses with innovative, tailored solutions that drive efficiency, productivity, and growth.
 
 At Trident, we combine cutting-edge technology with creative problem-solving to deliver solutions that truly make an impact. Whether it’s enhancing business processes, creating collaborative workspaces, building dynamic websites, or scaling operations to the cloud, our expertise ensures your success in an ever-evolving digital landscape.
@@ -45,9 +39,5 @@ Dive into our [**Blog**](blog.md) for insights, tutorials, and expert advice on:
 - Unlocking the full potential of Azure cloud services.  
 
 Our blog is your go-to destination for staying informed and inspired, with practical tips and in-depth explorations of the latest trends in IT.
-</P>
----
 
-<p align="center">
-  Discover the possibilities. Unlock your potential with Trident Professional Services.
-</p>
+Discover the possibilities. Unlock your potential with Trident Professional Services.
