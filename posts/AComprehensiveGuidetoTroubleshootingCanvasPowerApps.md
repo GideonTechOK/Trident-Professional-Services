@@ -1,4 +1,4 @@
-# Troubleshooting Canvas Power Apps: A Comprehensive Guide
+# Troubleshooting Canvas Power Apps: A Comprehensive Guide!
 
 ## Empowering Solutions Through Effective Debugging
 
