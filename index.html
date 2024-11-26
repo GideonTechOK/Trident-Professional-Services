@@ -5,6 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trident Professional Services - Managed IT Services</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Hero Image */
+        .hero {
+            position: relative;
+            background: url('assets/images/it-services-banner.jpg') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* Intro Section */
+        .intro {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 800px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Our Expertise Section */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: #007acc;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -17,6 +81,11 @@
         <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
     </nav>
+    <div class="intro">
+        <p>
+            Welcome to Trident Professional Services! We are your trusted partner for tailored IT solutions that streamline operations, enhance productivity, and secure your digital assets. Our mission is to empower businesses with innovative technology and unparalleled expertise.
+        </p>
+    </div>
     <div class="hero">
         <h2>Your Managed IT Services Partner</h2>
     </div>
@@ -25,19 +94,19 @@
         <div class="services">
             <div class="card">
                 <h3>Microsoft Power Platform</h3>
-                <p>Streamline workflows and enhance decision-making.</p>
+                <p>Streamline workflows and enhance decision-making with low-code applications, automating processes to save time and increase efficiency.</p>
             </div>
             <div class="card">
                 <h3>SharePoint Development</h3>
-                <p>Foster collaboration and improve information sharing.</p>
+                <p>Create dynamic, collaborative environments with customized SharePoint solutions to improve communication and information sharing.</p>
             </div>
             <div class="card">
                 <h3>JAMstack Solutions</h3>
-                <p>Build fast, secure, and scalable websites.</p>
+                <p>Build fast, secure, and scalable websites using modern web technologies to deliver exceptional user experiences and robust performance.</p>
             </div>
             <div class="card">
                 <h3>Azure Cloud Services</h3>
-                <p>Leverage secure and scalable cloud solutions.</p>
+                <p>Leverage secure and scalable cloud solutions tailored to your business, enabling innovation and growth with Microsoft Azure.</p>
             </div>
         </div>
     </section>
