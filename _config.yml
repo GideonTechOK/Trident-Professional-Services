@@ -1,12 +1,26 @@
 # _config.yml
 
+# Site Information
 url: "https://gideontechok.github.io"           # Your GitHub Pages URL
 baseurl: "/Trident-Professional-Services"       # Adjust if your site is served from a subpath
 
-remote_theme: pages-themes/cayman
+# Theme Configuration
+remote_theme: pages-themes/slate
 
+# Default Layouts
+defaults:
+  - scope:
+      path: "" # Applies to all files
+      type: "pages" # Applies only to pages
+    values:
+      layout: default
+  - scope:
+      path: "" # Applies to all files
+      type: "posts" # Applies only to blog posts
+    values:
+      layout: post
 
-
+# Plugins
 plugins:
   - jekyll-coffeescript
   - jekyll-feed
@@ -25,3 +39,7 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
+
+# Pagination (Optional: for blog posts)
+paginate: 5              # Number of posts per page
+paginate_path: "/page/:num/" # Path for paginated pages
