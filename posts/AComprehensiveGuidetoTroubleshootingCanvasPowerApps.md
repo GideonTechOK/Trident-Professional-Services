@@ -1,3 +1,8 @@
+---
+layout: default
+title: Trident Professional Services Technologies
+---
+
 # Troubleshooting Canvas Power Apps: A Comprehensive Guide!
 
 ## Empowering Solutions Through Effective Debugging
