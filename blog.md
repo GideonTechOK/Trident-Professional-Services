@@ -8,7 +8,7 @@
 - [Getting Started with JAMstack: A Comprehensive Guide](posts/JAMstack.md)
 - [Top 10 Tips for Building Efficient Power Automate Flows](posts/MaxAutomation.md)
 - [Mastering Prompt Writing for Copilot Studio  ](posts/PromptingForCopilotStudio.md)
-- [Add SharePoint PowerShell Snap-In ](posts/SPDatabaseMaintenance.md)
+- [Streamlining SharePoint Database Maintenance with PowerShell  ](posts/SPDatabaseMaintenance.md)
 - [SharePoint Development Techniques: The Way Forward](posts/SPODev.md)
 - [Why You Should Use JAMstack](posts/UseJAMstack.md)
 - [Creating a Multi-Level Approval Workflow in SharePoint: An Alternative to Power Automate Sequential Approvals](posts/multiapproval.md)
