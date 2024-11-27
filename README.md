@@ -1,5 +1,5 @@
-  ## Trident Professional Services  
-  ### Crafting Innovation, One Solution at a Time
+ ## Trident Professional Services  
+ ### Crafting Innovation, One Solution at a Time
   ---
 
 Welcome to **Trident Professional Services**, your trusted partner in the digital transformation journey. We are a team of dedicated IT professionals committed to empowering businesses with innovative, tailored solutions that drive efficiency, productivity, and growth.
