@@ -6,6 +6,7 @@ baseurl: "/Trident-Professional-Services"       # Adjust if your site is served 
 
 # Theme Configuration
 remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: custom
 
 # Default Layouts
 defaults:
