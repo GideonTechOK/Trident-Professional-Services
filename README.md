@@ -1,6 +1,12 @@
- ## Trident Professional Services  
- ### Crafting Innovation, One Solution at a Time
-  ---
+---
+layout: default
+title: Trident Professional Services
+---
+
+# Trident Professional Services  
+### Crafting Innovation, One Solution at a Time  
+
+---
 
 Welcome to **Trident Professional Services**, your trusted partner in the digital transformation journey. We are a team of dedicated IT professionals committed to empowering businesses with innovative, tailored solutions that drive efficiency, productivity, and growth.
 
@@ -8,7 +14,7 @@ At Trident, we combine cutting-edge technology with creative problem-solving to 
 
 ---
 
-## What We Do
+## What We Do  
 
 At Trident Professional Services, we specialize in a wide range of IT services designed to meet your unique needs:
 
@@ -19,7 +25,7 @@ At Trident Professional Services, we specialize in a wide range of IT services d
 
 ---
 
-## Why Choose Trident?
+## Why Choose Trident?  
 
 We go beyond traditional IT solutions by delivering personalized, forward-thinking strategies that transform your ideas into powerful, actionable results. Our approach focuses on:
 
@@ -29,7 +35,7 @@ We go beyond traditional IT solutions by delivering personalized, forward-thinki
 
 ---
 
-## Explore Our Blog
+## Explore Our Blog  
 
 Dive into our [**Blog**](blog.md) for insights, tutorials, and expert advice on:
 
@@ -40,4 +46,6 @@ Dive into our [**Blog**](blog.md) for insights, tutorials, and expert advice on:
 
 Our blog is your go-to destination for staying informed and inspired, with practical tips and in-depth explorations of the latest trends in IT.
 
-Discover the possibilities. Unlock your potential with Trident Professional Services.
+---
+
+Discover the possibilities. Unlock your potential with **Trident Professional Services**.
