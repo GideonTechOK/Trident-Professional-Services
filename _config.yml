@@ -3,8 +3,8 @@
 url: "https://gideontechok.github.io"           # Your GitHub Pages URL
 baseurl: "/Trident-Professional-Services"       # Adjust if your site is served from a subpath
 
-markdown: kramdown
-theme: minima
+remote_theme: pages-themes/midnight
+
 
 
 plugins:
