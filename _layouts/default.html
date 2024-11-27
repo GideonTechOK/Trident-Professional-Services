@@ -8,13 +8,13 @@
 </head>
 <body>
     <header>
-        <!-- Optional: Add site-wide header content -->
+        {% include header.html %}
     </header>
-    <main>
+    <main class="content-wrapper">
         {{ content }}
     </main>
     <footer>
-        <!-- Optional: Add site-wide footer content -->
+        {% include footer.html %}
     </footer>
 </body>
 </html>
