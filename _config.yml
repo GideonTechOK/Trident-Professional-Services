@@ -5,8 +5,8 @@ url: "https://gideontechok.github.io"           # Your GitHub Pages URL
 baseurl: "/Trident-Professional-Services"       # Adjust if your site is served from a subpath
 
 # Theme Configuration
-remote_theme: mmistakes/minimal-mistakes
-minimal_mistakes_skin: custom
+remote_theme: just-the-docs
+
 
 # Default Layouts
 defaults:
